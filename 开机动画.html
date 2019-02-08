@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./kaiji.css">
+
+<body>
+    <div class="text">
+        <h2>HAPPY NEW YEAR！</h2>
+        <h3>light your fire!</h3>
+    </div>
+    <div class="moster red">
+        <div class="eye">
+            <div class="eyeBall blue"></div>
+        </div>
+        <div class="mouse"></div>
+    </div>
+    <div class="moster blue">
+        <div class="eye">
+            <div class="eyeBall pink"></div>
+        </div>
+        <div class="mouse"></div>
+    </div>
+
+
+    <div class="loading">
+        <div class="moster red">
+            <div class="eye">
+                <div class="eyeBall blue"></div>
+            </div>
+            <div class="mouse"></div>
+        </div>
+        <div class="loading-bar">
+            <div class="ball"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var pex = 0;
+    var ball = document.getElementsByClassName('ball')[0];
+    var loading = document.getElementsByClassName("loading")[0];
+    var time = setInterval(() => {
+        ball.style.width = pex + '%';
+        if (pex == 100) {
+            clearInterval(time);
+            loading.style.opacity=0;
+        } else {
+            pex++;
+        }
+    }, 30);
+</script>
+
+</html>
