@@ -27,6 +27,6 @@
 
 ### 子串值属性选择器 （也称为伪正则选择器） 
 - [attr|=val]: 选择attr属性的值是val 或者val- 开头的元素，val- 中的-不是❌，而是用来处理编码语言。
-- [attr^=val]:选择attr属性的值以val开头。
-- [attr$=val]:选择attr属性的值以val结尾。
-- [attr*=val]: 选择attr属性的值包含在字符串val的元素中。
+- [attr^=val]:选择attr 属性的值以val开头。
+- [attr$=val]:选择attr 属性的值以val结尾。
+- [attr*=val]: 选择attr 属性的值包含在字符串val的元素中。
