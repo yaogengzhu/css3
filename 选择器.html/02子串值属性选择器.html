@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 子串类选择器也被称为伪正则选择器 */
+        [lang |="fr"] {
+            font-weight: bold;
+        }
+        /* 具有data-vegetable 属性，且属性值含有 not spicy的所有元素 */
+        [data-vegetable*="not spicy"]{
+            color: pink;
+        }
+        /*  */
+        [data-quantity$="kg"]{
+            /* font-weight: 700; */
+            font-size: 20px;
+        }
+        [data-quantity^="optional"]{
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li data-quantity="1kg" data-vegetable>Tomatoes</li>
+            <li data-quantity="3" data-vegetable>Onions</li>
+            <li data-quantity="3" data-vegetable>Garlic</li>
+            <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+            <li data-quantity="2kg" data-meat>Chicken</li>
+            <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+            <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+            <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+        </ul>
+        <div>
+            <span data-vegetable>hello</span>
+        </div>
+    </div>
+</body>
+
+</html>

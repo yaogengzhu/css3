@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /* 存在和值属性选择器 */
+    ul li {
+        list-style: none;
+    }
+    /* 加li 代表只能在li 下面访问 */
+    li[data-vegetable]{
+        color: green;
+    }
+    /* 属性完全匹配 */
+    [data-vegetable = "liquid"]{
+        color: red;
+    }
+    /* 属性关键字匹配 */
+    [data-vegetable~="spicy"]{
+        color:blue;
+    }
+
+</style>
+
+<body>
+    <div>
+        <ul>
+            <li data-quantity="1kg" data-vegetable>Tomatoes</li>
+            <li data-quantity="3" data-vegetable>Onions</li>
+            <li data-quantity="3" data-vegetable>Garlic</li>
+            <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+            <li data-quantity="2kg" data-meat>Chicken</li>
+            <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+            <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+            <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+        </ul>
+        <div>
+            <span data-vegetable>hello</span>
+        </div>
+    </div>
+</body>
+
+</html>
