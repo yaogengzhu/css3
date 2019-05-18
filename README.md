@@ -1,7 +1,7 @@
 # css特性
 *
     * [css规则](#1)
-    * [实现三栏布局的多种方式](#2)
+    * [实现三栏布局的7种方式](#2)
 
 <h2 id=1> css规则 </h2>
 
@@ -46,7 +46,7 @@
 - [具体参考，点我](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
 
 
-<h2 id=2> 实现三栏布局的多种方式<h2>
+<h2 id=2> 实现三栏布局的7种方式<h2>
 
 ### 方式1 流体布局 
 ```html
@@ -333,7 +333,7 @@
 ```
 #### 该方式虽然简单，但是无法设置中间栏的间距。。
 
-### 方式4 绝对定位方式 
+### 方式7 绝对定位方式 
 ```html
 <!DOCTYPE html>
 <html lang="en">
