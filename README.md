@@ -136,3 +136,247 @@
 </html>
 ``` 
 #### 这种方式跟第一种方式非常相似，也同样存在的一样的不足，影响用户体验度。
+
+### 方式3  双飞翼布局 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            float: left;
+            width: 100%;
+        }
+        .main{
+            height: 200px;
+            margin-left: 120px;
+            margin-right: 120px;
+            background-color: red;
+        }
+        .main::after{
+            content: "";
+            clear: both;
+            height: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
+        .left{
+            float: left;
+            margin-left: -100%;
+            width: 100px;
+            height: 200px;
+            background-color:pink;
+        }
+        .right{
+            float: right;
+            margin-left: -200px;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="main"></div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+</html>
+``` 
+#### 这样做的好处是，使得主体内容优先加载。利用的是浮动元素的负值影响。
+
+### 方式4 圣杯布局 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            margin-right: 120px;
+            margin-left: 120px;
+        }
+        .main{
+            float: left;
+            width: 100%;
+            height: 200px;
+            background-color: red;
+        }
+        .left{
+            position: relative;
+            top: 0;
+            left:-120px; 
+            float: left;
+            margin-left: -100%;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+        .right{
+            position: relative;
+            top: 0;
+            right: -120px;
+            float: left;
+            margin-left: -100px;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="main"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
+```
+#### 圣杯布局跟双飞翼布局非常相似
+
+### 方式5 flex布局 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            display: flex;
+        }
+        .left{
+            float: left;
+            margin-right: 20px;
+            width: 100px;
+            height: 200px;
+            background-color:pink;
+        }
+        .right{
+            float: right;
+            margin-left: 20px;
+            width: 100px;
+            height: 200px;
+            background-color:pink;
+        }
+        .main{
+            flex: 1;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="left"></div>
+        <div class="main"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
+```
+#### 该方式简洁明了好用，需要注意兼容性。
+
+### 方式6  table布局 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            width: 100%;
+            display: table;
+        }
+        .left,.right,.main{
+            display: table-cell;
+        }
+        .left{
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+        .right{
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+        .main{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="left"></div>
+        <div class="main"></div>
+        <div class="right"></div>
+    </div>
+
+</body>
+</html>
+```
+#### 该方式虽然简单，但是无法设置中间栏的间距。。
+
+### 方式4 绝对定位方式 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            position: relative;
+        }
+        .left{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 200px;
+            background-color:pink;
+        }
+        .right{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+        .main{
+            margin-right: 120px;
+            margin-left: 120px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="left"></div>
+        <div class="main"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
+``` 
+#### 刚方式通俗易懂！
