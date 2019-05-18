@@ -1,6 +1,10 @@
 # css特性
+*
+    * [css规则](#1)
+    * [实现三栏布局的多种方式](#2)
 
-## css规则 
+<h2 id=1> css规则 </h2>
+
 - @charset 和 @import （元数据）
 - @media 或 @document (条件信息，又被称为嵌套语句)
 - @font-face（描述性信息）
@@ -18,7 +22,7 @@
 }
 ```
 
-## 属性选择器 
+### 属性选择器 
 
 ### 存在和值属性选择器 
 - [attr] :该选择器选择包含attr 属性的所有元素。不论attr的值是什么。
@@ -32,7 +36,7 @@
 - [attr*=val]: 选择attr 属性的值包含在字符串val的元素中。
 
 
-## 盒子模型中的一些问题 
+### 盒子模型中的一些问题 
 
 ### 盒子外边距重叠问题 （记住重叠只会发生在上下，不会发生在左右）
 - 相邻元素之间的重叠。 （可以给第二个盒子浮动）
@@ -40,3 +44,95 @@
 - 空的块级元素。就是说该元素不存在边框，内容，等及浮动的话，有一定宽高，就非常容易的形成外边距重叠的效果。
 - 在使用的时候，需要特别注意这个外边距重叠的事情，搞不好就带来布局的紊乱。
 - [具体参考，点我](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
+
+
+<h2 id=2> 实现三栏布局的多种方式<h2>
+
+### 方式1 流体布局 
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .left {
+            float: left;
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .right {
+            float: right;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .main {
+            height: 200px;
+            margin-left: 120px;
+            margin-right: 120px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="main"></div>
+    </div>
+</body>
+
+</html>
+```
+#### 注意使用这个方式的弊端，由于自己的架构设计的是流体布局，看结构就可以知道，优先加载left ,right。 最后加载main。
+
+### 方式2 BFC三栏布局
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .left{
+            float: left;
+            margin-right: 20px;
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+        .right{
+            float: right;
+            margin-left: 20px;
+            width: 100px;
+            height: 200px;
+            background-color: pink;
+        }
+        .main{
+            height: 200px;
+            background-color: purple;
+            /* 点睛之笔 */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="main"></div>
+    </div>
+</body>
+</html>
+``` 
+#### 这种方式跟第一种方式非常相似，也同样存在的一样的不足，影响用户体验度。
